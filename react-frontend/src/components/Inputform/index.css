@@ -1,0 +1,105 @@
+/* Main container */
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #e3dcdc; /* Light grayish-pink */
+    border: 5px solid #0084ff; /* Blue border */
+  }
+  
+  /* File selector dropdown */
+  .file-selector {
+    position: relative;
+  }
+  
+  .custom-file-upload {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #4b49ac; /* Dark purple */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    outline: none;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #3a378f;
+  }
+  
+  .file-selector input {
+    display: none; /* Hide default file input */
+  }
+  
+  /* Upload Box */
+  .upload-box {
+    width: 100px;
+    height: 100px;
+    background-color: #e7f3df; /* Light green */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    border-radius: 10px;
+    border: 2px dashed #4b49ac; /* Dashed border */
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Highlight when file is dragged over */
+  .upload-box.drag-over {
+    background-color: #c6e1a6; /* Lighter green */
+  }
+  
+  /* Upload Icon */
+  .upload-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Drag and Drop Text */
+  .drag-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #5a789c; /* Blue-gray */
+  }
+  
+  /* Supported file formats text */
+  .supported-formats {
+    font-size: 14px;
+    color: #8b0f56; /* Dark purple */
+    margin-top: 5px;
+  }
+  
+  /* Custom Toast Styling */
+  .custom-toast {
+    background-color: red !important;
+    color: white !important;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  /* Home Button */
+.home-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #1A1A1A;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.home-btn:hover {
+    background: #4B3F72;
+}
