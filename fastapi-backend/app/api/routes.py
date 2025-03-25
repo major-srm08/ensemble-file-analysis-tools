@@ -3,6 +3,7 @@ from pydantic import BaseModel
 import os
 from app.video_analysis.main import analyze_video
 from app.docx_analysis.main import analyze_docx
+from app.image_analysis.main import analyze_image
 
 router = APIRouter()
 
@@ -40,3 +41,17 @@ async def analyze_docx_file(request: FilePathRequest):
         "analysis_result": analysis_result
     }
 
+@router.post("/analyze/image")
+async def analyze_image_file(request: FilePathRequest):
+    file_path = request.file_path
+
+    # Check if file exists
+    if not os.path.isfile(file_path):
+        raise HTTPException(status_code=400, detail="File not found!")
+
+    # Perform analysis and return structured JSON response
+    analysis_result = analyze_image(file_path)
+    return {
+        "file_path": file_path,
+        "analysis_result": analysis_result
+    }

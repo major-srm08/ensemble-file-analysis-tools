@@ -1,4 +1,4 @@
-No hidden data found in input/sample.jpg.
+No hidden data found in /home/kali/Downloads/sample.jpg.
 Steghide output:
 y^J
 Enter passphrase: 
