@@ -20,13 +20,9 @@ def detect_steganography(image_path):
 
         # Check if hidden data exists
         if "embedding" in output.lower():
-            output_text = f"Possible hidden data found in {image_path}.\nSteghide output:\n{output}"
+            output_text = {"status": "suspicious", "details": [f"Possible hidden data found in the image"], "recommendation": "Inspect the image for any traces of Steganography"}
         else:
-            output_text = f"No hidden data found in {image_path}.\nSteghide output:\n{output}"
-
-        # Save the output to a text file
-        with open(output_file, "w") as file:
-            file.write(output_text + "\n")
+            output_text = {"status": "safe", "details": [f"No hidden data found in the image"]}
 
         return output_text
 

@@ -1,5 +1,0 @@
-No hidden data found in /home/kali/Downloads/sample.jpg.
-Steghide output:
-y^J
-Enter passphrase: 
-steghide: could not extract any data with that passphrase!
