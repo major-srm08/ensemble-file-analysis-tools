@@ -15,6 +15,8 @@ import audioIcon from "/icons/mp3.png";
 import videoIcon from "/icons/mp4.png";
 import defaultIcon from "/icons/default.png"; // Default icon for unknown files
 
+import OutputTable from "../OutputTable";
+
 const InputForm = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileIcon, setFileIcon] = useState(defaultIcon);
@@ -22,6 +24,8 @@ const InputForm = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [isDragOver, setIsDragOver] = useState(false);
+  const [analysisResult, setAnalysisResult] = useState(null);
+  const [loading, setLoading] = useState(false);  // New state for loading
 
   const supportedFormats = {
     ".pdf": pdfIcon,
@@ -84,15 +88,106 @@ const InputForm = () => {
     setIsValidFile(false);
   };
 
-  const submitForm = (event) => {
+  const submitForm = async (event) => {
     event.preventDefault();
-    console.log("File Submitted");
-  };
+
+    if (!selectedFile) {
+        setToastMessage("Please select a file before submitting.");
+        setShowToast(true);
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    
+    setLoading(true);  // Show loader when submission starts
+
+    try {
+        const uploadResponse = await fetch("http://127.0.0.1:8000/upload/", {
+            method: "POST",
+            body: formData,
+        });
+
+        const uploadResult = await uploadResponse.json();
+
+        if (!uploadResponse.ok) {
+            setToastMessage(`Upload failed: ${uploadResult.detail}`);
+            setShowToast(true);
+            setLoading(false);
+            return;
+        }
+
+        console.log("✅ File uploaded successfully:", uploadResult);
+
+        // Extract the uploaded file path
+        const filePath = uploadResult.path;
+        const fileExt = selectedFile.name.split('.').pop().toLowerCase();
+
+        // Map extensions to API endpoints
+        const analysisEndpoints = {
+            "docx": "/analyze/docx",
+            "xlsx": "/analyze/xlsx",
+            "exe": "/analyze/exe",
+            "jpg": "/analyze/image",
+            "mp4": "/analyze/video",
+        };
+
+        const analysisEndpoint = analysisEndpoints[fileExt];
+
+        if (!analysisEndpoint) {
+            setToastMessage("Analysis not available for this file type.");
+            setShowToast(true);
+            setLoading(false);
+            return;
+        }
+
+        console.log(`🔍 Triggering analysis for: ${fileExt} at ${analysisEndpoint}`);
+
+        // Call the appropriate analysis API
+        const analysisResponse = await fetch(`http://127.0.0.1:8000${analysisEndpoint}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ file_path: filePath }),
+        });
+
+        const analysisResult = await analysisResponse.json();
+
+        if (!analysisResponse.ok) {
+            setToastMessage(`Analysis failed: ${analysisResult.detail}`);
+            setShowToast(true);
+            setLoading(false);
+            return;
+        }
+
+        console.log("✅ Analysis completed:", analysisResult);
+
+        // Navigate to Output page with analysis result
+        setTimeout(() => {
+            setLoading(false);
+            navigate("/output", { state: { analysisResult: analysisResult.analysis_result } });
+        }, 1000);
+
+    } catch (error) {
+        setToastMessage("Error processing file.");
+        setShowToast(true);
+        setLoading(false);
+    }
+};
+
 
   const navigate = useNavigate();
 
   return (
     <div className="file-upload-container">
+
+            {/* Show Loader if Analysis is Running */}
+{loading && (
+  <div className="loader-container">
+    <div className="spinner"></div>
+    <p>Analyzing file... Please wait</p>
+  </div>
+)}
+
       {/* Home Button */}
       <button className="home-btn" onClick={() => navigate("/")}>
         🏠 Home
@@ -138,7 +233,10 @@ const InputForm = () => {
 
       <p className="drag-text">Drop Your File Here Or Select Manually</p>
       <p className="supported-formats">.PDF, .JPG, .DOCX, .XLSX, .EXE, .MP3, .MP4</p>
-
+      
+      {/* Add OutputTable below the file input */}
+      {analysisResult && <OutputTable analysisResult={analysisResult} />}
+      
       {/* Toast Notification */}
       <ToastContainer position="top-end" className="p-3">
         <Toast
