@@ -1,9 +1,0 @@
-mutagen
-numpy
-scipy
-matplotlib
-audioread
-ffmpeg-python
-sounddevice 
-librosa  
-stegdetect
