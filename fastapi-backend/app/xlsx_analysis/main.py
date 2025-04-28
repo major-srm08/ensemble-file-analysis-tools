@@ -12,6 +12,7 @@ def analyze_xlsx(file_path):
     logging.info(f"Analyzing file: {file_path}")
 
     results = {}
+    status = ""
 
     try:
         # Validate file type

@@ -130,6 +130,7 @@ const InputForm = () => {
             "exe": "/analyze/exe",
             "jpg": "/analyze/image",
             "mp4": "/analyze/video",
+            "mp3": "/analyze/mp3",
         };
 
         const analysisEndpoint = analysisEndpoints[fileExt];

@@ -13,7 +13,6 @@ const OutputPage = () => {
       <button className="btn btn-primary back-btn" onClick={() => navigate("/")}>
         ⬅ Back to Upload
       </button>
-      <h1 className="output-heading">Analysis Report</h1>
 
       {analysisResult ? (
         <OutputTable analysisResult={analysisResult} />

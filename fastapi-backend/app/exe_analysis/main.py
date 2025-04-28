@@ -21,7 +21,7 @@ def analyze_exe(file_path):
         "pe_header": "",
         "sha256_hash": "",
         "exif_metadata": "",
-        "verdict": "SAFE",
+        "status": "SAFE",
         "reason": "No suspicious activity detected.",
         "suggested_action": "No action required. The file appears to be safe."
     }
@@ -51,11 +51,11 @@ def analyze_exe(file_path):
     
     # Automatic Analysis and Verdict
     if "FOUND" in clamav_result:
-        report["verdict"] = "SUSPICIOUS"
+        report["status"] = "SUSPICIOUS"
         report["reason"] = "ClamAV detected malware signatures in the file."
         report["suggested_action"] = "Do not execute the file. Delete it immediately and avoid downloading files from untrusted sources. Consider using a sandbox environment for further analysis."
     elif report["suspicious_strings"]:
-        report["verdict"] = "SUSPICIOUS"
+        report["status"] = "SUSPICIOUS"
         report["reason"] = "Suspicious strings (URLs, command execution, or PowerShell scripts) found in the file."
         report["suggested_action"] = "Investigate the extracted strings to determine potential threats. Avoid executing the file, and consider running it in an isolated virtual machine."
     
