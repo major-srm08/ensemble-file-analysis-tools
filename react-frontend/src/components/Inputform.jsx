@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Toast, ToastContainer } from "react-bootstrap";
-import "./index.css";
+import "./Inputform.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons"; // Import FontAwesome trash icon
@@ -15,7 +15,7 @@ import audioIcon from "/icons/mp3.png";
 import videoIcon from "/icons/mp4.png";
 import defaultIcon from "/icons/default.png"; // Default icon for unknown files
 
-import OutputTable from "../OutputTable";
+import OutputTable from "./OutputTable";
 
 const InputForm = () => {
   const [selectedFile, setSelectedFile] = useState(null);

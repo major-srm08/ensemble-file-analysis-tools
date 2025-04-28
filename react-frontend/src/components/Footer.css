@@ -1,0 +1,50 @@
+
+.footer-container {
+    width: 100%;
+    background: #1A1A1A;
+    padding: 6px 0;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+  }
+  
+  .detective-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .detective-img {
+    width: 150px;
+    height: auto;
+    animation: floatDetective 3s ease-in-out infinite;
+  }
+  
+  /* Detective floating animation */
+  @keyframes floatDetective {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .footer-text {
+    font-size: 14px;
+    color: #BBBBBB;
+    margin: auto;
+  }
+  
+  /* Responsive for mobile */
+  @media (max-width: 600px) {
+    .detective-img {
+      width: 100px;
+    }
+    .footer-text {
+      font-size: 14px;
+    }
+  }
+  

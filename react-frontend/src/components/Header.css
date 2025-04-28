@@ -1,0 +1,69 @@
+/* src/components/Header.css */
+.header-container {
+    width: 100%;
+    background: #1a1a1a;
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.site-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.flying-papers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .paper {
+    position: absolute;
+    top: -20px;
+    font-size: 20px;
+    opacity: 0.6;
+    animation: fly 10s linear infinite;
+  }
+  
+  .paper1 { left: 5%; animation-delay: 0s; }
+  .paper2 { left: 25%; animation-delay: 1s; }
+  .paper3 { left: 50%; animation-delay: 2s; }
+  .paper4 { left: 70%; animation-delay: 3s; }
+  .paper5 { left: 90%; animation-delay: 4s; }
+  
+  @keyframes fly {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(50px) rotate(20deg) scale(1.1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(100px) rotate(0deg) scale(1);
+      opacity: 0;
+    }
+  }
