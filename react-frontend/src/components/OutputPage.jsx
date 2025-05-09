@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import OutputTable from "../OutputTable";
-import "./index.css";
+import OutputTable from "./OutputTable";
+import "./OutputPage.css";
 
 const OutputPage = () => {
   const location = useLocation();

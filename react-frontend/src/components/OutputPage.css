@@ -23,4 +23,6 @@
   .back-btn {
     margin-bottom: 15px;
   }
-  
+  .main-content {
+    margin-top: 80px; /* adjust as needed */
+}

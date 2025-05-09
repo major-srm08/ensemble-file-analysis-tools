@@ -1,0 +1,162 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+/* Home Container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e3dcdc;
+    
+}
+
+
+.logo {
+    width: 55px;
+    height: 55px;
+    margin-right: 12px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+    font-style: bold ; 
+}
+
+/* Main Content Layout */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Sidebar Section */
+.sidebar {
+    flex: 2;
+    background:linear-gradient(90deg, #6c6c6c, rgb(17, 17, 17));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 15px;
+    min-width: 250px;
+}
+
+.search-img {
+    width: 140px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+.try-now-btn {
+    background: #F7F9FC;
+    color: #1A1A1A;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition:all 0.3s ease;
+    
+}
+.try-now-btn:hover {
+    background: #4B3F72;
+    color: white;
+}
+
+/* About the Tool Section */
+.about-tool {
+    flex: 3;
+    background: whitesmoke;
+    padding: 30px;
+    margin-left: 20px;
+    border-radius: 15px;
+    border:solid;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.about-tool h2 {
+    font-size: 26px;
+    color: #080808;
+    margin-bottom: 20px;
+}
+
+/* Carousel Container */
+.carousel-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Carousel Slides */
+.carousel-slide {
+    background: radial-gradient(circle, #8C7AA9, #3d3654 );
+    padding: 30px;
+    border-radius: 15px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-family:'Times New Roman', Times, serif;
+    color:#000000;
+    border:dotted;
+    padding: 5px;
+    border-color: #a89fab;
+}
+
+.carousel-slide p {
+    font-size: 16px;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+/* File Icon */
+.file-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-tool {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .carousel-slide {
+        padding: 20px;
+        min-height: 250px;
+    }
+}
+.main-content {
+    margin-top: 80px; /* adjust as needed */
+}

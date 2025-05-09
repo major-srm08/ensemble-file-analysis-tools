@@ -4,9 +4,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 80vh;
     background-color: #e3dcdc; /* Light grayish-pink */
-    border: 5px solid #0084ff; /* Blue border */
+    
+  
   }
   
   /* File selector dropdown */
@@ -87,7 +88,7 @@
   
   /* Home Button */
 .home-btn {
-    position: absolute;
+    position:absolute;
     top: 20px;
     left: 20px;
     background-color: #1A1A1A;
@@ -98,6 +99,7 @@
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 80px;
 }
 
 .home-btn:hover {
@@ -218,4 +220,7 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+.main-content {
+  margin-top: 80px; /* adjust as needed */
 }
