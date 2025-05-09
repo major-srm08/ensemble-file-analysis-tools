@@ -1,0 +1,113 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EDE7E3;
+}
+
+/* Home Page Container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: white;
+    padding: 10px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Main Content Layout */
+.main-content {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+/* Sidebar Section */
+.sidebar {
+    flex: 1;
+    background: #1A1A1A;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.search-img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.try-now-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.try-now-btn:hover {
+    background: #4B3F72;
+    color: white;
+}
+
+/* About the Tool Section */
+.about-tool {
+    flex: 2;
+    background: #CFE2F3;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.about-tool h2 {
+    background: #333;
+    color: white;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* File Type Grid */
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.file-box {
+    background: #D9D9D9;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid black;
+}
