@@ -8,7 +8,6 @@ from app.image_analysis.main import analyze_image
 from app.xlsx_analysis.main import analyze_xlsx
 from app.exe_analysis.main import analyze_exe
 from app.mp3_analysis.main import analyze_mp3
-from app.pdf_analysis.main import analyze_pdf
 
 router = APIRouter()
 
@@ -21,8 +20,8 @@ SUPPORTED_FORMATS = {
     ".exe": analyze_exe,
     ".jpg": analyze_image,
     ".mp4": analyze_video,
-    ".pdf": analyze_pdf, 
-    ".mp3": analyze_mp3,
+    # ".pdf": analyze_pdf,  # To be implemented
+    ".mp3": analyze_mp3, # To be implemented
 }
 
 # Define a request model to accept a file path
@@ -124,7 +123,7 @@ async def analyze_exe_file(request: FilePathRequest):
     }
 
 @router.post("/analyze/mp3")
-async def analyze_mp3_file(request: FilePathRequest):
+async def analyze_docx_file(request: FilePathRequest):
     file_path = request.file_path
 
     # Check if file exists
@@ -133,20 +132,6 @@ async def analyze_mp3_file(request: FilePathRequest):
 
     # Perform analysis and return structured JSON response
     analysis_result = analyze_mp3(file_path)
-    return {
-        "analysis_result": analysis_result
-    }
-
-@router.post("/analyze/pdf")
-async def analyze_pdf_file(request: FilePathRequest):
-    file_path = request.file_path
-
-    # Check if file exists
-    if not os.path.isfile(file_path):
-        raise HTTPException(status_code=400, detail="File not found!")
-
-    # Perform analysis and return structured JSON response
-    analysis_result = analyze_pdf(file_path)
     return {
         "analysis_result": analysis_result
     }

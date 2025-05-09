@@ -10,7 +10,7 @@ const OutputPage = () => {
 
   return (
     <div className="output-page">
-      <button className="btn btn-primary back-btn" onClick={() => navigate("/inputform")}>
+      <button className="btn btn-primary back-btn" onClick={() => navigate("/")}>
         ⬅ Back to Upload
       </button>
 
